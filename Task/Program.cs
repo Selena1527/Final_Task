@@ -6,26 +6,43 @@
 // При решение не рекомендуется пользоваться коллекциями, лучше обойтись исключительно массивами
 
 // Примеры: 
-// [“Hello”, “2”, “world”, “:-)”] → [“2”, “:-)”] 
-// [“1234”, “1567”, “-2”, “computer science”] → [“-2”] 
-// [“Russia”, “Denmark”, “Kazan”] → []
+// ["Hello", "2", "world", ":-)"] → [“2”, “:-)”] 
+// ["1234", "1567", "-2", "computer science"] → [“-2”] 
+// ["Russia", "Denmark", "Kazan"] → []
 
+string[] arrString = new string[] {"Russia", "Denmark", "Kazan"};  // "Hello", "2", "world", ":-)"
+                                                                   // "1234", "1567", "-2", "computer science"
+                                                                   // "Russia", "Denmark", "Kazan"
 
-string[] arrString = { "Hello", "2", "world", ":-)" };
 for (int i = 0; i < arrString.Length; i++)
-    Console.Write("{1} ", i, arrString[i]);
+{
+    Console.WriteLine("{1} ", i, arrString[i]);
+}
 
+string[] array2 = new string[arrString.Length];
 
+void SecondArray(string[] arrString, string[] array2)
+{
+    int count = 0;
+    for (int i = 0; i < arrString.Length; i++)
+    {
+    if(arrString[i].Length <= 3)
+        {
+        array2[count] = arrString[i];
+        count++;
+        }
+    }
+}
 
-// void PrintArray(int[] array)
-// {
-//     Console.Write("[");
-//     for (int i = 0; i < array.Length; i++)
-//     {
-//         if (i < array.Length - 1) Console.Write($"{array[i]},");
-//         else Console.Write($"{array[i]}");
-//     }
-//     Console.WriteLine("]");
-// }
+void PrintArray(string[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"{array[i]} ");
+    }
+    Console.WriteLine();
+}
 
-// PrintArray(array);
+SecondArray(arrString, array2);
+Console.WriteLine();
+PrintArray(array2);
